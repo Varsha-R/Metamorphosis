@@ -53,7 +53,6 @@ public class ProcessMessage {
 
     public void lookUpMessage(String message) {
         totalIncomingMessages += 1;
-        System.out.println("Looking up: " + message);
         for(int i = 0; i < JsonLookUpMap.length(); i++) {
             JSONObject jsonobject = JsonLookUpMap.getJSONObject(i);
             if(message.contains(jsonobject.getString("word"))) {
