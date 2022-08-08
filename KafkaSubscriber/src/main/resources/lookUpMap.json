@@ -1,0 +1,134 @@
+[
+  {
+    "word": "guys",
+    "recommendation": "folks"
+  },
+  {
+    "word": "businessman",
+    "recommendation": "business person"
+  },
+  {
+    "word": "businesswoman",
+    "recommendation": "business person"
+  },
+  {
+    "word": "chairman",
+    "recommendation": "chairperson"
+  },
+  {
+    "word": "chairwoman",
+    "recommendation": "chairperson"
+  },
+  {
+    "word": "average man",
+    "recommendation": "average person"
+  },
+  {
+    "word": "best man",
+    "recommendation": "best person"
+  },
+  {
+    "word": "best man for the job",
+    "recommendation": "best person for the job"
+  },
+  {
+    "word": "layman",
+    "recommendation": "layperson"
+  },
+  {
+    "word": "mankind",
+    "recommendation": "humankind"
+  },
+  {
+    "word": "man-made",
+    "recommendation": "handmade"
+  },
+  {
+    "word": "manpower",
+    "recommendation": "personnel"
+  },
+  {
+    "word": "to man",
+    "recommendation": "to operate"
+  },
+  {
+    "word": "freshman",
+    "recommendation": "first-year student"
+  },
+  {
+    "word": "common man",
+    "recommendation": "average person"
+  },
+  {
+    "word": "disabled",
+    "recommendation": "people with disabilities"
+  },
+  {
+    "word": "handicapped",
+    "recommendation": "people with disabilities"
+  },
+  {
+    "word": "man up",
+    "recommendation": "toughen up"
+  },
+  {
+    "word": "sexual preference",
+    "recommendation": "sexuality"
+  },
+  {
+    "word": "transvestite",
+    "recommendation": "trans person"
+  },
+  {
+    "word": "ladies",
+    "recommendation": "folks"
+  },
+  {
+    "word": "gentlemen",
+    "recommendation": "folks"
+  },
+  {
+    "word": "blacklist",
+    "recommendation": "block list"
+  },
+  {
+    "word": "coloured people",
+    "recommendation": "other racial groups"
+  },
+  {
+    "word": "minority",
+    "recommendation": "underrepresented group"
+  },
+  {
+    "word": "foreigner",
+    "recommendation": "person from overseas"
+  },
+  {
+    "word": "class",
+    "recommendation": "socioeconomic status"
+  },
+  {
+    "word": "mentally ill",
+    "recommendation": "has a mental illness"
+  },
+  {
+    "word": "victim",
+    "recommendation": "survivor"
+  },
+  {
+    "word": "the poor",
+    "recommendation": "people with low income"
+  },
+  {
+    "word": "elderly",
+    "recommendation": "old person"
+  },
+  {
+    "word": "old man",
+    "recommendation": "old person"
+  },
+  {
+    "word": "old woman",
+    "recommendation": "old person"
+  }
+]
