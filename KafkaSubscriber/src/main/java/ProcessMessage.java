@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -15,11 +16,11 @@ public class ProcessMessage {
 
     public JSONArray JsonLookUpMap = new JSONArray();
 
-    private long totalIncomingMessages = 0;
+    private static long totalIncomingMessages;
 
-    private long flaggedMessages = 0;
+    private static long flaggedMessages;
 
-    private long stats = 0;
+    private static double stats;
 
     private ProcessMessage() throws IOException, SlackApiException {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
@@ -27,14 +28,14 @@ public class ProcessMessage {
         String jsonTxt = IOUtils.toString(is, "UTF-8");
         JsonLookUpMap = new JSONArray(jsonTxt);
 
-        LocalDateTime twoSecondsLater = LocalDateTime.now().plusSeconds(2);
+        LocalDateTime twoSecondsLater = LocalDateTime.now().plusMinutes(2);
         Date twoSecondsLaterAsDate = Date.from(twoSecondsLater.atZone(ZoneId.systemDefault()).toInstant());
         new Timer().schedule(new sendMessageToSlack(), twoSecondsLaterAsDate);
     }
 
     class sendMessageToSlack extends TimerTask {
         public void run() {
-            String statsMessageString = "STATS: You have had " + stats + "% flagged messages in this channel today.";
+            String statsMessageString = "STATS: You have had " + new DecimalFormat("#.##").format(stats) + "% flagged messages in this channel today.";
             try {
                 SlackEventReceiverApplication.publishMessage("XXXXXXXXXXX", statsMessageString);
             } catch (SlackApiException e) {
@@ -53,16 +54,19 @@ public class ProcessMessage {
 
     public void lookUpMessage(String message) {
         totalIncomingMessages += 1;
+        stats = ((double) flaggedMessages/totalIncomingMessages) * 100;
         for(int i = 0; i < JsonLookUpMap.length(); i++) {
             JSONObject jsonobject = JsonLookUpMap.getJSONObject(i);
             if(message.contains(jsonobject.getString("word"))) {
+                System.out.println("Total: " + totalIncomingMessages);
                 String recommendation = jsonobject.getString("recommendation");
-                String messageString = "Uh-oh! You've used '" + jsonobject.getString("word") + "' which is not inclusive. Try using '" + recommendation + "' instead";
+                String messageString = "Uh-oh! You have used '" + jsonobject.getString("word") + "' which is not inclusive. Try using '" + recommendation + "' instead";
                 System.out.println(messageString);
 
                 try {
                     SlackEventReceiverApplication.publishMessage("XXXXXXXXXXX", messageString);
                     flaggedMessages += 1;
+                    stats = ((double) flaggedMessages/totalIncomingMessages) * 100;
                 } catch (SlackApiException e) {
                     throw new RuntimeException(e);
                 } catch (IOException e) {
@@ -70,7 +74,6 @@ public class ProcessMessage {
                 }
             }
         }
-        stats = (flaggedMessages/totalIncomingMessages) * 100;
     }
 
 }
