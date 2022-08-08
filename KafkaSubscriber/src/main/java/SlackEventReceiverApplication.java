@@ -19,7 +19,7 @@ public class SlackEventReceiverApplication {
             // Call the chat.postMessage method using the built-in WebClient
             var result = client.chatPostMessage(r -> r
                             // The token you used to initialize your app
-                            .token("xoxb-3725736922657-3900338632150-WNIPkLYipa5wFx0GiHkS4yy7")
+                            .token("xxxxx-xxxxxxxxxxxxxxxx")
                             .channel(id)
                             .text(text)
                     // You could also use a blocks[] array to send richer content

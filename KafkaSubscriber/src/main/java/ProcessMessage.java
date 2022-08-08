@@ -36,7 +36,7 @@ public class ProcessMessage {
         public void run() {
             String statsMessageString = "STATS: You have had " + stats + "% flagged messages in this channel today.";
             try {
-                SlackEventReceiverApplication.publishMessage("C03SRBDHHU4", statsMessageString);
+                SlackEventReceiverApplication.publishMessage("XXXXXXXXXXX", statsMessageString);
             } catch (SlackApiException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
@@ -62,7 +62,7 @@ public class ProcessMessage {
                 System.out.println(messageString);
 
                 try {
-                    SlackEventReceiverApplication.publishMessage("C03SRBDHHU4", messageString);
+                    SlackEventReceiverApplication.publishMessage("XXXXXXXXXXX", messageString);
                     flaggedMessages += 1;
                 } catch (SlackApiException e) {
                     throw new RuntimeException(e);
